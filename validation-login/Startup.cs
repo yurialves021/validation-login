@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using validation_login.Data;
+using validation_login.Repositories;
 using validation_login.Repositories.Interfaces;
 
 namespace validation_login
@@ -35,7 +36,7 @@ namespace validation_login
             });
 
 
-
+            services.AddTransient<ISeedUserRoleInitial, SeedUserRoleInitial>();
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Admin",
